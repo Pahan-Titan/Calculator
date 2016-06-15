@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="action_settings">Setting</string>
+    <string name="action_clear">Clear</string>
+</resources>
