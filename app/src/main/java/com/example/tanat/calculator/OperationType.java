@@ -9,6 +9,7 @@ public enum OperationType {
     ADD,
     SUBTRACT,
     MULTIPLY,
-    DIVIDE
+    DIVIDE,
+    PERCENT
 
 }

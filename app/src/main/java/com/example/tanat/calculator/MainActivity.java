@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
                     commands.put(Symbol.OPERATION, operType);
     //                commands.put(Symbol.OPERATION, operType);
                     if (!commands.containsKey(Symbol.FIRST_DIGIT)) {                    //если первое число пустое
-                        //                if ((commands.get(Symbol.FIRST_DIGIT)).equals("")){
                         commands.put(Symbol.FIRST_DIGIT, textResult.getText());
         //                commands.put(Symbol.OPERATION, operType);
                         textView.setText(commands.get(Symbol.FIRST_DIGIT).toString() + symbol);
@@ -118,6 +117,34 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             //    textView.setText(textResult.getText());
+                break;
+            }
+
+            case R.id.buttonPercent: {
+                if (!textResult.getText().equals("0") && !textResult.getText().equals("0,")){
+                    commands.put(Symbol.SECOND_DIGIT, textResult.getText());
+
+                    double percent = getDouble(commands.get(Symbol.SECOND_DIGIT));
+
+                    double valuePercent = CalcOperations.percent(
+                            getDouble(commands.get(Symbol.FIRST_DIGIT)),
+                            getDouble(commands.get(Symbol.SECOND_DIGIT)));
+
+                    commands.remove(Symbol.SECOND_DIGIT);
+                    commands.put(Symbol.SECOND_DIGIT, valuePercent);
+
+                    if (valuePercent % 1 == 0){
+                        textView.setText(String.valueOf((int)percent) + "%("
+                                + commands.get(Symbol.FIRST_DIGIT) + ") = ");
+                        textResult.setText(String.valueOf((int)valuePercent));// отсекать нули после запятой
+                    }else{
+                        textView.setText(String.valueOf(percent) + "%("
+                                + commands.get(Symbol.FIRST_DIGIT) + ") = ");
+                        textResult.setText(String.valueOf(valuePercent));// отсекать нули после запятой
+                    }
+                }
+
+
                 break;
             }
 

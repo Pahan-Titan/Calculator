@@ -20,4 +20,8 @@ public class CalcOperations {
     public static double divide(double a, double b) {
         return a / b;
     }
+
+    public static double percent(double a, double b) {
+        return a * 0.01 * b;
+    }
 }
